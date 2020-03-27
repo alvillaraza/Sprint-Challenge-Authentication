@@ -16,4 +16,20 @@ describe("auth-router.js", function() {
         expect(res.type).toMatch(/json/i);
       });
   });
+  describe("login /", function() {
+    it("should return 200 OK", function() {
+      return request(server)
+        .post("/")
+        .then(response => {
+          expect(response.status).toBe(200);
+        });
+    });
+    it("should return JSON", function () {
+      return request(server)
+        .post("/login")
+        .then(res => {
+          expect(res.type).toMatch(/json/i);
+        });
+    });
+  });
 });
